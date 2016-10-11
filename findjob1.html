@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+    <title>Title</title>
+    <link href="findjob1.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="screen.css" type="text/css" media="screen">-->
+    <style>
+        html,body{
+            height: 100%;
+            overflow: hidden;
+            font-size: 30px;
+        }
+        body{
+            margin: 0;
+        }
+        .pages{
+            height: 800%;
+        }
+        .page{
+            height: 12.5%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="img/music_note_big.png" alt=""class="music">
+
+<div id="content" class="pages">
+    <div class="page page-1-1 active">
+        <div class="wrap">
+            <img src="img/t1-text.png" alt="" class="img_1 ">
+            <img src="img/t1-yuan.png" alt="" class="img_2">
+            <img src="img/icon_up.png" alt="" class="img_3 pt-page-moveIconUp">
+        </div>
+    </div>
+    <div class="page page-2-1 hide">
+        <div class="wrap">
+            <img src="img/t2-2.png" alt="" class="img_1">
+            <img src="img/t2-3.png" alt="" class="img_2">
+            <img src="img/icon_up.png" alt="" class="img_3">
+        </div>
+    </div>
+    <div class="page page-3-1 hide">
+        <div class="wrap">
+            <img src="img/t3-2.png" alt="" class="img_1">
+            <img src="img/t3-1.png" alt="" class="img_2">
+            <img src="img/icon_up.png" alt="" class="img_3">
+        </div>
+    </div>
+    <div class="page page-4-1 hide">
+        <div class="wrap">
+            <img src="img/t4-1.png" alt="" class="img_1">
+            <img src="img/t4-2.png" alt="" class="img_2">
+            <img src="img/t4-3.png" alt="" class="img_3">
+            <img src="img/icon_up.png" alt="" class="img_4">
+        </div>
+    </div>
+    <div class="page page-5-1 hide">
+        <div class="wrap">
+            <img src="img/t5-1.png" alt="" class="img_1">
+            <img src="img/t5-2.png" alt="" class="img_2">
+            <img src="img/t5-3.png" alt="" class="img_3">
+            <img src="img/icon_up.png" alt="" class="img_4">
+        </div>
+    </div>
+    <div class="page page-6-1 hide">
+        <div class="wrap">
+            <img src="img/t6-1.png" alt="" class="img_1">
+            <img src="img/t6-2.png" alt="" class="img_2">
+            <img src="img/t6-3.png" alt="" class="img_3">
+            <img src="img/icon_up.png" alt="" class="img_4">
+        </div>
+    </div>
+    <div class="page page-7-1 hide">
+        <div class="wrap">
+            <img src="img/t7-1.png" alt="" class="img_1">
+            <img src="img/t7-2.png" alt="" class="img_2">
+            <img src="img/t7-3.png" alt="" class="img_3">
+            <img src="img/icon_up.png" alt="" class="img_4">
+        </div>
+    </div>
+    <div class="page page-8-1 hide">
+        <div class="wrap">
+            <img src="img/t8-1.png" alt="" class="img_1">
+            <img src="img/t8-2.png" alt="" class="img_2">
+            <img src="img/t8-3.png" alt="" class="img_3">
+            <img src="img/icon_up.png" alt="" class="img_4">
+        </div>
+    </div>
+    <div class="page page-9-1 hide">
+        <div class="wrap">
+            <img src="img/t9-1.png" alt="" class="img_1">
+            <img src="img/t9-2.png" alt="" class="img_2">
+            <img src="img/icon_up.png" alt="" class="img_3"></div>
+    </div>
+    <div class="page page-10-1 hide">
+        <div class="wrap">
+            <img src="img/t10-1.png" alt="" class="img_1">
+            <div class="text">
+               <h2 style="padding:5px; margin:0px">中通快递股份有限公司招聘</h2>
+                电话：
+                <a href="tel:021-69787567">021-69787567</a>
+                (汪小姐)<br>
+                邮箱：
+                <a href="mailto:zp-hr@zto.cn">zp-hr@zto.cn</a>
+                <br>
+            </div>
+            <a href="http://wap.zto.cn">
+                <img id="img1" class="img_logo pt-page-moveFromBottom img_2" src="img/t10-3.png">
+            </a>
+            <img src="img/t10-5.png" alt="" class="img_3">
+            <a href="http://m.51job.com/search/joblist.php?jobarea=020000&amp;keyword=中通快递">
+                <img id="img" class="img_4 pt-page-moveFromBottom" src="img/t10-4.png">
+            </a>
+        </div>
+    </div>
+</div>
+<audio id="audio-play" autoplay="autoplay" loop="loop">
+    <source src="img/1.mp3">
+</audio>
+<script src="touch-0.2.14.min.js"></script>
+<script src="../lib/jquery/jquery.js"></script>
+<script>
+    window.addEventListener('touchmove',function (e) {
+        e.preventDefault();
+    })
+    var index=1;
+    touch.on(window,'swipe',function (ev) {
+        if(ev.direction=='down'){
+            index=index-1<=1?1:index-1;
+        }else if(ev.direction=='up'){
+            index=index+1>=10?10:index+1;
+        }
+        animate();
+    })
+
+    $('.music').click(function () {
+        // var audio=document.getElementById('audio-play');
+        var audio=$('#audio-play')[0];
+        if( audio.paused){
+            audio.play();
+        }else{
+            audio.pause();
+        }
+        var state=  this.style.animationPlayState;
+        if(state=='paused'){
+            this.style.animationPlayState='running';
+        }else{
+            this.style.animationPlayState='paused';
+        }
+    })
+
+
+    function animate() {
+        $('.pages').css({'-webkit-transform':'translate3d(0,-'+(index-1)/8*100+'%,0)','transform':'translate3d(0,-'+(index-1)/8*100+'%,0)'})
+        $('.page').removeClass('active');
+        $('.page:eq('+(index-1)+')').addClass('active');
+    }
+</script>
+</body>
+</html>
